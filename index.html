@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFA Minimization Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DFA Minimization Tool</h1>
+            <p>Visualize and minimize Deterministic Finite Automata using partition refinement</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>DFA Input</h2>
+                <div class="input-form">
+                    <div class="form-group">
+                        <label for="states">States (comma-separated)</label>
+                        <input type="text" id="states" placeholder="e.g., q0,q1,q2" value="q0,q1,q2">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alphabet">Alphabet (comma-separated)</label>
+                        <input type="text" id="alphabet" placeholder="e.g., a,b" value="a,b">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transitions">Transitions (one per line)</label>
+                        <textarea id="transitions" rows="6" placeholder="Format: fromState,symbol,toState&#10;e.g.,&#10;q0,a,q1&#10;q0,b,q2&#10;q1,a,q1&#10;q1,b,q2&#10;q2,a,q2&#10;q2,b,q2">q0,a,q1
+q0,b,q2
+q1,a,q1
+q1,b,q2
+q2,a,q2
+q2,b,q2</textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startState">Start State</label>
+                            <input type="text" id="startState" placeholder="e.g., q0" value="q0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="finalStates">Final States (comma-separated)</label>
+                            <input type="text" id="finalStates" placeholder="e.g., q2" value="q2">
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="loadExample" class="btn btn-secondary">Load Example</button>
+                        <button id="minimizeBtn" class="btn btn-primary">Minimize DFA</button>
+                        <button id="clearBtn" class="btn btn-outline">Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visualization Section -->
+            <section class="visualization-section">
+                <div class="visualization-container">
+                    <div class="dfa-visualization">
+                        <h3>Original DFA</h3>
+                        <div id="originalDFA" class="dfa-graph"></div>
+                    </div>
+                    
+                    <div class="dfa-visualization">
+                        <h3>Minimized DFA</h3>
+                        <div id="minimizedDFA" class="dfa-graph"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Console Output Section -->
+            <section class="console-section">
+                <h2>Console Output</h2>
+                <div id="console" class="console-output"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dfa-model.js"></script>
+    <script src="dfa-minimizer.js"></script>
+    <script src="dfa-visualizer.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
